@@ -100,7 +100,7 @@
 <i class="flaticon-3d-printer"></i>
 </div>
 <h3>Wiring</h3>
-<p>Some Text Here</p>
+<p>Safe, standards-compliant electrical wiring and power installation for telecom sites, homes and commercial buildings.</p>
 <div class="overlay-icon">
 <i class="flaticon-3d-printer"></i>
 </div>
@@ -110,7 +110,7 @@
 <i class="flaticon-industrial-robot"></i>
 </div>
 <h3>Steel Work</h3>
-<p>Some Text Here</p>
+<p>Hot-dip galvanized steel structures, platforms and supports built and installed to exact technical specifications.</p>
 <div class="overlay-icon">
 <i class="flaticon-industrial-robot"></i>
 </div>
@@ -120,7 +120,7 @@
 <i class="flaticon-assembly-line"></i>
 </div>
 <h3>Tower Erection</h3>
-<p>Some Text Here</p>
+<p>Erection of monopoles, guyed masts and self-supporting towers from 30 metres to 300 metres and above.</p>
 <div class="overlay-icon">
 <i class="flaticon-assembly-line"></i>
 </div>
@@ -130,7 +130,7 @@
 <i class="flaticon-conveyor"></i>
 </div>
 <h3>Painting</h3>
-<p>Some Text Here</p>
+<p>Industrial painting and anti-corrosion coating of masts, towers and steel structures for a longer service life.</p>
 <div class="overlay-icon">
  <i class="flaticon-conveyor"></i>
 </div>
@@ -140,7 +140,7 @@
 <i class="flaticon-control-system"></i>
 </div>
 <h3>Sales/Services</h3>
-<p>Some Text Here</p>
+<p>Supply, installation and maintenance of electrical and mechanical equipment, backed by reliable after-sales support.</p>
 <div class="overlay-icon">
 <i class="flaticon-control-system"></i>
 </div>
@@ -150,7 +150,7 @@
     <i class="flaticon-conveyor"></i>
     </div>
     <h3>Fabrication</h3>
-    <p>Some Text Here</p>
+    <p>Custom fabrication of tower sections, brackets, cable trays and equipment shelters in our own workshop.</p>
     <div class="overlay-icon">
      <i class="flaticon-conveyor"></i>
     </div>
@@ -159,8 +159,8 @@
         <div class="service-icon">
         <i class="flaticon-conveyor"></i>
         </div>
-        <h3>General Marchant</h3>
-        <p>Some Text Here</p>
+        <h3>General Merchant</h3>
+        <p>Sourcing and supply of quality construction, electrical and telecom materials delivered straight to your site.</p>
         <div class="overlay-icon">
          <i class="flaticon-conveyor"></i>
         </div>
@@ -185,217 +185,39 @@
     </div>
     <div id="projects-carousel" class="projects-carousel box-shadow owl-carousel">
     <?php 
-            define("DB_SERVER", "localhost");
-    define("DB_USER", "id18698161_root");
-    define("DB_PASS", ")K-rg^1qkrw~Z2=Q");
-    define("DB_NAME", "id18698161_construction");    
-         $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+         require_once __DIR__ . "/config.php";
                  $sql = mysqli_query($conn,"SELECT * FROM projects order by id desc limit 5");
                  while($rows = mysqli_fetch_array($sql)){?>
                      <div class="project-item">
-                     <img src="<?php echo './uploads/'.$rows['image'];?>" alt="projects">
+                     <img src="<?php echo e('./uploads/'.rawurlencode($rows['image']));?>" alt="projects">
                      <div class="overlay"></div>
-                     <a href="<?php echo './uploads/'.$rows['image'];?>" class="view-icon img-popup" data-gall="project"> <i class="fas fa-expand"></i></a>
+                     <a href="<?php echo e('./uploads/'.rawurlencode($rows['image']));?>" class="view-icon img-popup" data-gall="project"> <i class="fas fa-expand"></i></a>
                      <div class="projects-content">
-                     <h3><a href="#" class="tittle"><?php echo $rows['description'];?></a></h3>
+                     <h3><a href="#" class="tittle"><?php echo e($rows['description']);?></a></h3>
                      </div>
                      </div>
                  <?php }?>
     </div>
     </div>
     </section>
-    <!-- <div class="cta-section padding">
-<div class="container">
-<div class="cta-content text-center">
-<span class="wow fadeInUp">Explore The Features</span>
-<h2 class="wow fadeInUp" data-wow-delay="300ms">The best constructions <br>company</h2>
-</div>
-</div> -->
-<!-- </div>
-<section class="content-section padding">
-<div class="container">
-<div class="row content-wrap">
-<div class="col-lg-6 sm-padding wow fadeInLeft" data-wow-delay="100ms">
-<img class="box-shadow" class="box-shadow" src="img/content-1.jpg" alt="img">
-</div>
-<div class="col-lg-6 sm-padding">
-<div class="content-info wow fadeInRight" data-wow-delay="300ms">
-<span>Explore The Features</span>
-<h2>Offering the most complete integrated package!</h2>
-<p>We are committed to building a sustainable future by fostering a collaborative spirit that creates exceptional experiences, balanced relationships, and community built environment. Building isn’t just job. It's our passion. With every project we undertake, we set the bar high and provide the best industry.</p>
-<a href="#" class="default-btn">Get Free Quote</a>
-</div>
-</div>
-</div>
-</div>
-</section>
+<?php
+$testimonials = mysqli_fetch_all(mysqli_query($conn, "SELECT * FROM testimonials WHERE is_published = 1 ORDER BY created_at DESC LIMIT 6"), MYSQLI_ASSOC);
+if ($testimonials) { ?>
 <section class="testimonial-section bg-grey padding">
 <div class="dots"></div>
 <div class="container">
 <div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="100ms">
 <span>Testimonial</span>
-<h2>What people says</h2>
+<h2>What our clients say</h2>
 </div>
 <div id="testimonial-carousel" class="testimonial-carousel box-shadow owl-carousel">
-<div class="testi-item d-flex align-items-center">
-<img src="img/testi-1.jpg" alt="img">
-<div class="testi-content">
-<p>"Thank you for guiding us through the construction process, understanding, and always ready to accommodate our needs. We love our new space and know that it was built by the very best!"</p>
-<h3>Kyle Frederick</h3>
-<ul class="rattings">
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-</ul>
-<span>Director</span>
-</div>
-<i class="fa fa-quote-right"></i>
-</div>
-<div class="testi-item d-flex align-items-center">
-<img src="img/testi-2.jpg" alt="img">
-<div class="testi-content">
-<p>"Thank you for guiding us through the construction process, understanding, and always ready to accommodate our needs. We love our new space and know that it was built by the very best!"</p>
-<h3>Valentin Lacoste</h3>
-<ul class="rattings">
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-</ul>
-<span>Director</span>
-</div>
-<i class="fa fa-quote-right"></i>
-</div>
-<div class="testi-item d-flex align-items-center">
-<img src="img/testi-3.jpg" alt="img">
-<div class="testi-content">
-<p>"Thank you for guiding us through the construction process, understanding, and always ready to accommodate our needs. We love our new space and know that it was built by the very best!"</p>
-<h3>José Carpio</h3>
-<ul class="rattings">
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-<li><i class="fa fa-star"></i></li>
-</ul>
-<span>Director</span>
-</div>
-<i class="fa fa-quote-right"></i>
-</div>
+<?php include "testimonial-items.php"; ?>
 </div>
 </div>
 </section>
-<section class="blog-section padding">
-<div class="container">
-<div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="100ms">
-<span>From Blog</span>
-<h2>Speciallized news</h2>
-</div>
-<div class="row blog-wrap">
-<div class="col-lg-4 col-sm-6 sm-padding">
-<div class="blog-item box-shadow">
-<div class="blog-thumb">
-<img src="img/post-1.jpg" alt="post">
-<span class="category"><a href="#">interior</a></span>
-</div>
-<div class="blog-content">
-<h3><a href="#">Minimalist trending in modern architecture 2019</a></h3>
-<p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-<a href="#" class="read-more">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6 sm-padding">
-<div class="blog-item box-shadow">
-<div class="blog-thumb">
-<img src="img/post-2.jpg" alt="post">
-<span class="category"><a href="#">Architecture</a></span>
-</div>
-<div class="blog-content">
-<h3><a href="#">Terrace in the town yamazaki kentaro design workshop.</a></h3>
-<p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-<a href="#" class="read-more">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6 sm-padding">
-<div class="blog-item box-shadow">
-<div class="blog-thumb">
-<img src="img/post-3.jpg" alt="post">
-<span class="category"><a href="#">Design</a></span>
-</div>
-<div class="blog-content">
-<h3><a href="#">W270 house são paulo arquitetos fabio jorge architeqture.</a></h3>
-<p>Building first evolved out dynamics between needs means available building materials attendant skills.</p>
-<a href="#" class="read-more">Read More</a>
-</div>
-</div>
-</div>
-</div>
-</div> -->
-<!-- </section> -->
-<!-- <div class="sponsor-section bg-grey">
-<div class="dots"></div>
-<div class="container">
-<div id="sponsor-carousel" class="sponsor-carousel owl-carousel">
-<div class="sponsor-item">
-<img src="img/sponsor1.png" alt="sponsor">
-</div>
-<div class="sponsor-item">
-<img src="img/sponsor2.png" alt="sponsor">
-</div>
-<div class="sponsor-item">
-<img src="img/sponsor3.png" alt="sponsor">
-</div>
-<div class="sponsor-item">
-<img src="img/sponsor4.png" alt="sponsor">
-</div>
-<div class="sponsor-item">
-<img src="img/sponsor5.png" alt="sponsor">
-</div>
-<div class="sponsor-item">
-<img src="img/sponsor6.png" alt="sponsor">
-</div>
-<div class="sponsor-item">
-<img src="img/sponsor7.png" alt="sponsor">
- </div>
-<div class="sponsor-item">
-<img src="img/sponsor8.png" alt="sponsor">
-</div>
-</div>
-</div>
-</div> -->
+<?php } ?>
 <?php include "footer.php"; ?>
-<a data-scroll href="#header" id="scroll-to-top"><i class="arrow_carrot-up"></i></a>
-
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/vendor/jquery-1.12.4.min.js"></script>
-
-<script src="js/vendor/bootstrap.min.js"></script>
-
-<script src="js/vendor/tether.min.js"></script>
-
-<script src="js/vendor/headroom.min.js"></script>
-
-<script src="js/vendor/owl.carousel.min.js"></script>
-
-<script src="js/vendor/smooth-scroll.min.js"></script>
-
-<script src="js/vendor/venobox.min.js"></script>
-
-<script src="js/vendor/jquery.ajaxchimp.min.js"></script>
-
-<script src="js/vendor/slick.min.js"></script>
-
-<script src="js/vendor/waypoints.min.js"></script>
-
-<script src="js/vendor/odometer.min.js"></script>
-
-<script src="js/vendor/wow.min.js"></script>
-
-<script src="js/main.js"></script>
+<?php include "scripts.php"; ?>
 </body>
 
 <!-- index.html  29 Nov 2019 03:30:38 GMT -->

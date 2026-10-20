@@ -1,26 +1,37 @@
-<?php include "syntax.php";?>
+<?php include "syntax.php"; ?>
 <body>
-<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 <div class="site-preloader-wrap">
 <div class="spinner"></div>
 </div>
-<?php include "header.php";?>
-
-<!-- <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Dynamic%20Layers&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com/"></a></div><style>.mapouter{position:relative;text-align:right;height:350px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:350px;width:100%;}</style></div> -->
+<?php include "header.php"; ?>
+<section class="page-header padding">
+<div class="container">
+<div class="page-content text-center">
+<h2>Contact us</h2>
+<p>We would love to hear about your project.</p>
+</div>
+</div>
+</section>
 <section class="contact-section bg-grey padding">
 <div class="dots"></div>
 <div class="container">
 <div class="contact-wrap d-flex align-items-center row">
 <div class="col-md-6 padding-15">
 <div class="contact-info">
-<h2>Get in touch with us & <br>send us message today!</h2>
-<</div>
+<h2>Get in touch with us &amp; <br>send us a message today!</h2>
+<p><?php echo e(setting("contact_intro")); ?></p>
+<h3><?php echo e(setting("company_address")); ?></h3>
+<h4>
+<?php if (setting("company_email")) { ?><span>Email:</span> <a href="mailto:<?php echo e(setting("company_email")); ?>"><?php echo e(setting("company_email")); ?></a><br><?php } ?>
+<?php if (setting("phone_primary")) { ?><span>Phone:</span> <a href="tel:<?php echo e(preg_replace("/[^0-9+]/", "", setting("phone_primary"))); ?>"><?php echo e(setting("phone_primary")); ?></a><br><?php } ?>
+<?php if (setting("phone_secondary")) { ?><span>Phone:</span> <a href="tel:<?php echo e(preg_replace("/[^0-9+]/", "", setting("phone_secondary"))); ?>"><?php echo e(setting("phone_secondary")); ?></a><?php } ?>
+</h4>
+</div>
 </div>
 <div class="col-md-6 padding-15">
 <div class="contact-form">
-<form class="form-horizontal">
+<p>Messages are sent to us on WhatsApp.</p>
+<form class="form-horizontal" id="contact-form">
 <div class="form-group colum-row row">
 <div class="col-sm-6">
 <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
@@ -36,60 +47,32 @@
 </div>
 <div class="form-group row">
 <div class="col-md-12">
-<button id="submit" class="default-btn" type="submit" onclick="gotowhatsapp()">Send Message</button>
+<button id="submit" class="default-btn" type="submit">Send Message</button>
 </div>
 </div>
-<div id="form-messages" class="alert" role="alert"></div>
 </form>
 </div>
 </div>
 </div>
 </div>
 </section>
-<?php include "footer.php";?>
-<a data-scroll href="#header" id="scroll-to-top"><i class="arrow_carrot-up"></i></a>
-
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/vendor/jquery-1.12.4.min.js"></script>
-
-<script src="js/vendor/bootstrap.min.js"></script>
-
-<script src="js/vendor/tether.min.js"></script>
-
-<script src="js/vendor/headroom.min.js"></script>
-
-<script src="js/vendor/owl.carousel.min.js"></script>
-
-<script src="js/vendor/smooth-scroll.min.js"></script>
-
-<script src="js/vendor/venobox.min.js"></script>
-
-<script src="js/vendor/jquery.ajaxchimp.min.js"></script>
-
-<script src="js/vendor/slick.min.js"></script>
-
-<script src="js/vendor/waypoints.min.js"></script>
-
-<script src="js/vendor/odometer.min.js"></script>
-
-<script src="js/vendor/wow.min.js"></script>
-
-<script src="js/main.js"></script>
-</body>
-
+<?php if (setting("map_location")) { ?>
+<div class="contact-map">
+<iframe title="Our location" width="100%" height="350" style="border:0;display:block;" loading="lazy"
+src="https://maps.google.com/maps?q=<?php echo e(rawurlencode(setting("map_location"))); ?>&amp;z=13&amp;output=embed"></iframe>
+</div>
+<?php } ?>
+<?php include "footer.php"; ?>
+<?php include "scripts.php"; ?>
 <script>
-function gotowhatsapp() {
-    
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-
-    var url = "https://wa.me/2348085059313?text=" 
-    + "Name: " + name + "%0a"
-    + "Email: " + email  + "%0a"
-    + "Message: " + message; 
-
-    window.open(url, '_blank').focus();
-}
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var text = "Name: " + document.getElementById("name").value + "\n"
+        + "Email: " + document.getElementById("email").value + "\n"
+        + "Message: " + document.getElementById("message").value;
+    var whatsappNumber = <?php echo json_encode(preg_replace("/[^0-9]/", "", setting("whatsapp_number", "2348085059313"))); ?>;
+    window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text), "_blank");
+});
 </script>
-<!-- contact.html  29 Nov 2019 03:34:47 GMT -->
+</body>
 </html>
