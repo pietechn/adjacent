@@ -1,0 +1,13 @@
+# Uploaded files are images only - never run them as scripts.
+<FilesMatch "\.(?i:php\d*|phtml|phar|pht|pl|py|cgi|sh|shtml|asp|aspx|jsp)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+RemoveHandler .php .phtml .phar .pht
+RemoveType .php .phtml .phar .pht
+Options -Indexes -ExecCGI

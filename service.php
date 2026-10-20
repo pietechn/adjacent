@@ -27,7 +27,7 @@
 <i class="flaticon-3d-printer"></i>
 </div>
 <h3>Wiring</h3>
-<p></p>
+<p>Safe, standards-compliant electrical wiring and power installation for telecom sites, homes and commercial buildings.</p>
 <div class="overlay-icon">
 <i class="flaticon-3d-printer"></i>
 </div>
@@ -39,7 +39,7 @@
 <i class="flaticon-industrial-robot"></i>
 </div>
 <h3>Steel Work</h3>
-<p></p>
+<p>Hot-dip galvanized steel structures, platforms and supports built and installed to exact technical specifications.</p>
 <div class="overlay-icon">
 <i class="flaticon-industrial-robot"></i>
 </div>
@@ -51,7 +51,7 @@
 <i class="flaticon-assembly-line"></i>
 </div>
 <h3>Tower Erection</h3>
-<p></p>
+<p>Erection of monopoles, guyed masts and self-supporting towers from 30 metres to 300 metres and above.</p>
 <div class="overlay-icon">
 <i class="flaticon-assembly-line"></i>
 </div>
@@ -63,7 +63,7 @@
 <i class="flaticon-conveyor"></i>
 </div>
 <h3>Painting</h3>
-<p></p>
+<p>Industrial painting and anti-corrosion coating of masts, towers and steel structures for a longer service life.</p>
 <div class="overlay-icon">
 <i class="flaticon-conveyor"></i>
 </div>
@@ -75,7 +75,7 @@
     <i class="flaticon-conveyor"></i>
     </div>
     <h3>Sales/Services</h3>
-    <p></p>
+    <p>Supply, installation and maintenance of electrical and mechanical equipment, backed by reliable after-sales support.</p>
     <div class="overlay-icon">
     <i class="flaticon-conveyor"></i>
     </div>
@@ -87,7 +87,7 @@
         <i class="flaticon-conveyor"></i>
         </div>
         <h3>Fabrication</h3>
-        <p></p>
+        <p>Custom fabrication of tower sections, brackets, cable trays and equipment shelters in our own workshop.</p>
         <div class="overlay-icon">
         <i class="flaticon-conveyor"></i>
         </div>
@@ -98,8 +98,8 @@
             <div class="service-icon">
             <i class="flaticon-conveyor"></i>
             </div>
-            <h3>General Marchant</h3>
-            <p></p>
+            <h3>General Merchant</h3>
+            <p>Sourcing and supply of quality construction, electrical and telecom materials delivered straight to your site.</p>
             <div class="overlay-icon">
             <i class="flaticon-conveyor"></i>
             </div>
@@ -230,33 +230,7 @@
 </div>
 </div> -->
 <?php include "footer.php";?>
-<a data-scroll href="#header" id="scroll-to-top"><i class="arrow_carrot-up"></i></a>
-
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/vendor/jquery-1.12.4.min.js"></script>
-
-<script src="js/vendor/bootstrap.min.js"></script>
-
-<script src="js/vendor/tether.min.js"></script>
-
-<script src="js/vendor/headroom.min.js"></script>
-
-<script src="js/vendor/owl.carousel.min.js"></script>
-
-<script src="js/vendor/smooth-scroll.min.js"></script>
-
-<script src="js/vendor/venobox.min.js"></script>
-
-<script src="js/vendor/jquery.ajaxchimp.min.js"></script>
-
-<script src="js/vendor/slick.min.js"></script>
-
-<script src="js/vendor/waypoints.min.js"></script>
-
-<script src="js/vendor/odometer.min.js"></script>
-
-<script src="js/vendor/wow.min.js"></script>
-
-<script src="js/main.js"></script>
+<?php include "scripts.php"; ?>
 </body>
 
 <!-- services-2.html  29 Nov 2019 03:33:45 GMT -->
